@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for categories in list %}
+
+<div class="row justify-items-center align-items-center" >
+    {% for events in categories %}
+        <div class="col-sm-3 card custom-card m-5 border-0 rounded-sm">
+                  <img class="card-img-top" src="{{ events.thumbnail.url }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h6 class="card-title">{{ events.title }}</h6>
+                    <span class="label-text1">{{ events.description }}</span>
+                      <div class="row container pt-2">
+                        <div class="column">
+                          <span>4.5 </span>
+                          <span class="ratings-icons">
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                          </span>
+                        </div>
+                      <div class="column">
+                        <span class="review-stats">&ensp;(20)</span>
+                      </div>
+                      </div>
+                       <div class="row">
+                      <div class="col-sm-7">
+                        <div class="card-text custom-text4">Prices Starting From</div>
+                        <div class="card-text custom-text5"><i class="fa fa-inr"></i>{{ events.price }}</div>
+                      </div>
+                      <div class="col-sm-5 justify-align-right">
+                        <center><button  onclick="window.location.href = 'usertype.html';" class="nav-item custom-button4">Details</button></center>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+    {% endfor %}
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'dis/css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'dis/css/tabs.css' %}">
+  <link rel="stylesheet" href="{% static 'dis/css/custom-mobile.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md  navbar-custom">
+        <a href="{% url 'Home' %}" class="navbar-brand">
+            <img class="logo" src="{% static 'dis/img/logo.png' %}" alt="Angadi Logo">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+      
+            <div class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <div class="collapse navbar-collapse" id="navbar-list-4">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                            </a>
+                            
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                 <a class="dropdown-item" href="#">Dashboard</a>
+                              <a class="dropdown-item" href="#">Account Settings</a>
+                              <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                          </li>
+                        </ul>
+                </div>
+                {% else %}
+                <a href="{% url 'account_login' %}"><button   class="nav-item custom-button1">Login</button></a>
+                <a href="{% url 'account_signup'  %}"><button   class="nav-item custom-button2">Register?</button></a>
+                {% endif %}
+            </div>
+        </div>
+     </nav>
+     
+     <div class="container p-4 justify-content-center align-items-left bg-image">
+      <h1 class="main-header">Food is a necessity<span style="color:rgb(235, 235, 235);"> .</span><br><span style="color: #315eff;">Don’t waste it, utilize it.</span></h1>
+        <div class="container h-100 p-4">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+                <form action="#">
+              <input class="search_input" type="text" name="q" placeholder="Search for latest news,events...">
+              <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+                    </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+ </body>
+</html>
+
+<!--Container-->
+
